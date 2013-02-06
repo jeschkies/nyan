@@ -1,0 +1,18 @@
+---
+#Saves the last crawled news for each news outlet.
+techcrunch:
+  last_entry: http://techcrunch.com/2012/07/27/follow-me-google-makes-it-easier-for-advertisers-to-use-remarketing/
+allthingsd:
+  last_entry: http://allthingsd.com/20120727/google-about-that-wi-fi-payload-data-we-said-wed-delete/
+allfacebook:
+  last_entry: http://allfacebook.com/also-on-box_b95758
+androidandme:
+  last_entry: http://androidandme.com/2012/07/smartphones-2/att-htc-one-x-100-price-drop-scheduled-for-july-29th/?utm_source=rss&utm_medium=rss&utm_campaign=att-htc-one-x-100-price-drop-scheduled-for-july-29th
+anandtech:
+  last_entry: http://anandtech.feedsportal.com/c/34653/f/635203/s/21c3536d/l/0L0Sanandtech0N0Cshow0C610A40Corigin0Echronos0Ereview0Ethe0Eultimate0Elan0Ebox/story01.htm
+boingboing:
+  last_entry: http://boingboing.net/2012/07/27/george-rr-martin-sex.html
+bgr:
+  last_entry: http://www.bgr.com/2012/07/27/sprint-q2-2012-earnings-analysis/
+engadget:
+  last_entry: http://www.engadget.com/2012/07/27/lenovo-ideapad-k1-ics/

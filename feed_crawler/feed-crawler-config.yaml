@@ -1,0 +1,153 @@
+---
+#Config for database access. See Storage::Database
+database:
+  host: ""
+  user: ""
+  passwd: ""
+  db: ""
+  article-table: ""
+#All news outlets with a config
+feeds:
+  - techcrunch
+  - allthingsd
+  - allfacebook
+  - androidandme
+  - anandtech
+  - boingboing
+  - bgr
+  - engadget
+#Config for each news outlet (vendor)
+#Paths can be CSS or XPath
+vendors:
+  techcrunch:
+    url: "http://techcrunch.com/"
+    feed-url: "http://feeds.feedburner.com/TechCrunch/"
+    scraping:
+      author: 
+        type: CSS
+        path: "html body#techcrunch.single div#page-container 
+                 div.column-container div.left-container 
+                 div#module-post-detail.module-post-detail 
+                 div.meta-info div.author a.name span.name"
+      headline: 
+        type: CSS
+        path: "html body#techcrunch.single div#page-container 
+                 div.column-container div.left-container 
+                 div#module-post-detail.module-post-detail h1.headline"
+      content:
+        type: XPath
+        path: '/html/body/div[@id = "page-container"]/
+                 div[@class="column-container"]/div[@class="left-container"]/
+                 div[@id="module-post-detail"]/div[@class="body-copy"]/
+                 *[name() = "p" or name() = "img"]'
+  allthingsd:
+    url: "http://allthingsd.com/"
+    feed-url: "http://allthingsd.com/feed/"
+    scraping:
+      author:
+        type: CSS
+        path: "html body.single div#container div#content div.wrapper 
+                   div.page-header p.title a"
+      headline:
+        type: CSS
+        path: "html body div.article-title h1.title"
+      content:
+        type: XPath
+        path: "/html/body/div/div/div/div/div/
+                div[@class='article-body article-text']//*"
+  allfacebook:
+    url: "http://www.allfacebook.com/"
+    feed-url: "http://feeds.feedburner.com/allfacebook"
+    scraping:
+      author:
+        type: CSS
+        path: "html body#blog.cat- div#outer.container section#shell.clearfix 
+                section#maincontent.col-main article.clearfix span.postauthor a"
+      headline:
+        type: CSS
+        path: "html body#blog.cat- div#outer.container section#shell.clearfix 
+                section#maincontent.col-main article.clearfix h2.col-main a"
+      content:
+        type: CSS
+        path: "html body article.post section.postcontent"
+  androidandme:
+    url: "http://androidandme.com/"
+    feed-url: "http://feeds.feedburner.com/androidandme"
+    scraping:
+      author:
+        type: CSS
+        path: "html body.single div#main section#main-content article 
+                header.meta small.author a"
+      headline:
+        type: CSS
+        path: "html body.single div#main section#main-content article h2.title a"
+      content:
+        type: CSS
+        path: "html body.single div#main section#main-content article 
+              div.entry-content"
+  anandtech:
+    url: "http://www.anandtech.com/"
+    feed-url: "http://www.anandtech.com/rss/"
+    scraping:
+      author:
+        type: CSS
+        path: "html body div#hold_me div#container_site div#container_width 
+                div#subpage.containerbody div.body_left div.subbox div.subcontent 
+                div.sidepadding div.small a.b"
+      headline:
+        type: CSS
+        path: "html body div#hold_me div#container_site div#container_width 
+                div#subpage.containerbody div.body_left div.subbox div.subcontent 
+                div.sidepadding div.dottedheading a"
+      content:
+        type: CSS
+        path: "html body div#hold_me div#container_site div#container_width 
+                div#subpage.containerbody div.body_left div.subbox div.subcontent 
+                div.sidepadding p"
+  engadget:
+    url: "http://www.engadget.com/"
+    feed-url: "http://www.engadget.com/rss.xml"
+    scraping:
+      author:
+       type: CSS
+       path: "html body.home div.content_holder div.inner-padding 
+                div.col1 div.blogroll div.post_content div.post_info 
+                div.post_byline span.caption a"
+      headline :
+       type: CSS
+       path: "html body.home div.content_holder div.inner-padding 
+                div.col1 div.blogroll div.post_content h1.post_title"
+      content :
+       type: CSS
+       path: "html body.home div.content_holder div.inner-padding 
+                div.col1 div.blogroll div.post_content div.post_body"
+  boingboing:
+    url: "http://www.boingboing.net/"
+    feed-url: "http://feeds.boingboing.net/boingboing/iBag"
+    scraping:
+      author:
+        type: CSS
+        path: "html body div p.byline a[rel=author]"
+      headline:
+        type: CSS
+        path: "html body h2.headline a[rel=bookmark]"
+      content:
+        type: XPath
+        path: "/html/body/div/div/div/p[not(@class='byline')]"
+  bgr:
+    url: "http://www.bgr.com/"
+    feed-url: "http://www.bgr.com/feed/"
+    scraping:
+      author:
+        type: CSS
+        path: "html body div.yui3-g div#main.yui3-g div.wrap 
+                div#main-content div.post div.post-details 
+                div.post-writer a"
+      headline:
+        type: CSS
+        path: "html body div.yui3-g div#main.yui3-g div.wrap 
+                div#main-content.yui3-u-2-3 div.post h1 a"
+      content:
+        type: XPath
+        path: "/html/body//div[@class='post-article']//p[not(@class='bgr-bas-bio') and not(@class='bgr-bas-viewall')]"
+...
