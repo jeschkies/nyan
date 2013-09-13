@@ -1,0 +1,23 @@
+.vendor-nav > ul
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.vendor-nav > ul > li > a
+{
+    color: rgba(0, 136, 204, 0.6);
+    font-size: 11px;
+    padding-left: 0px;  
+    padding-right: 0px;
+}
+
+.vendor-nav > ul > li.active > a,
+.vendor-nav > ul > li.active > a:hover
+{
+    color: rgba(0, 136, 204, 1.0);
+    font-size: 11px;
+    padding-left: 0px;  
+    padding-right: 0px;
+    background-color: #FFFFFF;
+}

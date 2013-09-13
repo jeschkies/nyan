@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <!-- content -->
+    <div class="span9 offset3">
+        <div class="page-header">
+            <h2>Manage Your News Subscriptions</h2>
+        </div>
+
+        
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Publisher</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for v in vendors %}
+                <tr>
+                    <td width="30%">{{ v.name }}</td>
+                    <td>
+                        <div data-toggle="buttons-radio" class="btn-group">
+                            <button class="btn btn-primary {% if v|is_subscriped %} active {% endif %}" 
+                                data-subscripe-vendor="{{ v.id }}">Subscribe</button>
+                            <button class="btn btn-primary {% if not v|is_subscriped %} active {% endif %}"
+                                data-unsubscripe-vendor="{{ v.id }}">Unsubscribe</button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+  
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class="hero-unit" style="height: 250px">
+        <div class="pull-left">
+            <h1 style="font-family: 'Open Sans'; font-weight: 300">Welcome</h1>
+            <p>To The Smart and Elegant News Reader</p>
+            <p>
+        </div>
+        <div class="pull-right">
+            <form class="form-horizontal" method="post">
+                <fieldset>
+                <legend>Login</legend>
+                <div class="control-group">
+                    <label class="control-label" for="e_mail">E-Mail</label>
+                    <div class="controls">
+                        <input name="e_mail" type="text" class="input-xlarge" id="e_mail">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input name="password" type="password" class="input-xlarge" id="password">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+                </fieldset>
+           </form>
+        </div>
+    </div>
+{% endblock %}

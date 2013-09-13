@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <div class="span10 offset2">
+        
+        <!-- view switcher -->
+        <!--
+        <div class="row" style="margin-bottom: 20px">
+            <div class="span10">
+                <div class="btn-group pull-right" data-toggle="buttons-radio">
+                    <button class="btn"><i class="icon-th"></i></button>
+                    <button class="btn active"><i class="icon-align-left"></i></button>
+                </div>
+            </div>
+        </div>
+        -->
+        
+        <!-- content -->
+        <div class="row">
+            <div class="span7 offset1">
+                <h2><a href="{{article.url}}">{{article['headline']}}</a><br />
+                    <small>by {{ article.author }} on {{ article.vendor.name }}, {{ article.date|datetimeformat('%A %d-%m-%Y') }}</small></h2>
+                <div style="font-size: 16px; line-height: 26px">{{article.content|safe}}</div>
+            </div>   
+        </div> 
+    </div>
+  
+</div>
+{% endblock %}

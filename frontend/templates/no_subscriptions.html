@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <div class="span10 offset2" style="margin-top: 100px; margin-bottom: 100px">
+
+        <!-- content -->
+        <div class="alert alert-info alert-block">
+        	<h4>You have no subscriptions!</h4>
+        	Hey {{ user.name }}, you are not subscribed to any news services yet. You can do so over at the <a href="{{ root }}/subscriptions">Subscriptions</a> section!
+        </div>
+    
+    </div>
+  
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <!-- content -->
+    <div class="span9 offset3">
+        <div class="page-header">
+            <h2>See Details of Your Profile</h2>
+        </div>
+
+        <!--
+        <h3>These are the first 60 words associated with your interests:</h3>
+        <div>
+            {% for profile in user_model %}
+            <div class="row">
+                {% for column in profile.features.data|sort(reverse=True,attribute=1)|range(0, 59)|slice(3) %}
+                <div class="span3">
+                    <ul>
+                     {% for feature in column %}
+                        <li>{{ dictionary[feature[0]] }}</li>
+                     {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% endfor %}
+        </div>-->
+        
+        <div class="page-header">
+            <h2>Change Your Password:</h2>
+        </div>
+        <div>
+            <form action="" id="change_password_form">
+                <div class="control-group">
+                    <label class="control-label" for="old_password">Old Password</label>
+                    <div class="controls">
+                        <input type="password" placeholder="" id="old_password" name="old_password">   
+                    </div>
+                    <span class="help-block">Enter your old password.</span>
+                </div>
+                <div class="control-group">
+                    <label for="new_password">New Password</label>
+                    <input type="password" placeholder="" id="new_password" name="new_password">
+                    <label for="new_password_repeat">Repeat New Password</label>
+                    <input type="password" placeholder="" id="new_password_repeat" name="new_password_repeat">
+                    <span class="help-block">Enter your new password and repeat it.</span>
+                </div>
+                <div class="form-actions">
+                    <button class="btn" id="submit_password" onclick="return false;">Change</button>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+  
+</div>
+{% endblock %}

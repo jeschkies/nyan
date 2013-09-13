@@ -1,0 +1,18 @@
+        <!-- time navigation -->
+        <div class="row">
+            <div class="span9" style="text-align: center">
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="{{ request.script_root }}/{% if tab == 'top' %}top{% else %}all{% endif %}/{{ date|prevdate|datetimeformat }}">&larr; {{ date|prevdate|datetimeformat_read }}</a>
+                    </li>
+                    <li>
+                        {{date|datetimeformat_read }}
+                    </li>
+                    {% if not date is today %}
+                    <li class="next">
+                        <a href="{{ request.script_root }}/{% if tab == 'top' %}top{% else %}all{% endif %}/{{ date|nextdate|datetimeformat }}">{{ date|nextdate|datetimeformat_read }} &rarr;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>

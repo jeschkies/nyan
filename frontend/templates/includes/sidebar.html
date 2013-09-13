@@ -1,0 +1,20 @@
+        <div class="" style="padding: 8px 0;">
+             <ul class="nav nav-list">
+                <li {% if tab == 'top' %} class="active" {% endif %}>
+                    <a href="{{ request.script_root }}/top/{{ date|datetimeformat }}">Top News</a>
+                </li>
+                <li {% if tab == 'all' %} class="active" {% endif %}>
+                    <a href="{{ request.script_root }}/all/{{ date|datetimeformat }}">All News</a>
+                </li>
+                <li class="divider"></li>
+                <li {% if tab == 'profile' %} class="active" {% endif %}>
+                    <a href="{{ request.script_root }}/profile">Profile</a>
+                </li>
+                <li {% if tab == 'subscriptions' %} class="active" {% endif %}>
+                    <a href="{{ request.script_root }}/subscriptions">Subscriptions</a>
+                </li>
+                <li>
+                    <a href="{{ request.script_root }}/logout">Logout</a>
+                </li>
+            </ul>          
+        </div>

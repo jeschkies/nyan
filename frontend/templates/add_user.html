@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <div class="span10 offset2">
+
+        <div class="page-header">
+            <h2>Add a new User:</h2>
+        </div>
+        <div>
+            <form action="" id="add_user_form">
+            	<div class="row">
+            		<div class="span5">
+		                <div class="control-group">
+		                    <label class="control-label" for="name">Name</label>
+		                    <div class="controls">
+		                        <input type="text" placeholder="" id="name" name="name">   
+		                    </div>
+		                    <label class="control-label" for="email">E-Mail</label>
+		                    <div class="controls">
+		                        <input type="text" placeholder="" id="email" name="email">   
+		                    </div>
+		                    <span class="help-block">Enter user's credentials.</span>
+		                </div>
+            		</div>
+            		<div class="span5">
+		                <div class="control-group">
+		                    <label for="new_password">New Password</label>
+		                    <input type="password" placeholder="" id="new_password" name="new_password">
+		                    <label for="new_password_repeat">Repeat New Password</label>
+		                    <input type="password" placeholder="" id="new_password_repeat" name="new_password_repeat">
+		                    <span class="help-block">Enter your new password and repeat it.</span>
+		                </div>
+            		</div>
+            	</div>
+                <div class="form-actions">
+                    <button class="btn" id="submit_user" onclick="return false;">Add</button>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+  
+</div>
+{% endblock %}

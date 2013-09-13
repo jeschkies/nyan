@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <!-- vendor tabs -->
+    <div class="vendor-nav offset11 span1" style="position: fixed;">
+        <ul class="nav nav-list">
+            {% for group in articles|groupby('vendor.id') %}
+                <li>
+                    <a href="#{{ group.grouper }}" style="">{{ (group.list|first).vendor.name }} ({{ group.list|length }})</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>  
+    
+    <div class="span9 offset2">
+        
+        <!-- view switch 
+        <div class="row" style="margin-bottom: 20px">
+            <div class="span10">
+                <div class="btn-group pull-right" data-toggle="buttons-radio">
+                    <button class="btn active" style="padding-bottom: 1px;"><i class="icon-th"></i></button>
+                    <button class="btn" style="padding-bottom: 1px;"><i class="icon-align-left"></i></button>
+                </div>
+            </div>
+        </div>-->
+
+        {% include 'includes/time_navigation.html' %}
+
+        <!-- content -->
+         <div class="row">
+            <div class="span9">
+                    {% for group in articles|groupby('vendor.id') %}
+                    <section id="{{ group.grouper }}">
+                        <div class="page-header">
+                            <h3><a name="{{ group.grouper }}"></a>{{ (group.list|first).vendor.name }}</h3>
+                        </div>
+                        
+                        {% for un_reads in group.list|groupby('read') %}
+	                        {% if not un_reads.grouper %}
+		                        {% for row in un_reads.list|sort(attribute="date")|batch(3) %}
+		                            <div class="row">
+		                            {% for article in row %}
+		                                <div class="span3">
+		                                    <h5><a href="{{ request.script_root }}/read/{{ article.id }}">{{ article.headline }}</a><br />
+		                                    <small>{{ article.author }} on {{ article.vendor.name }}, {{ article.date|datetimeformat(format="%R on %d-%m-%Y") }}</small></h5>
+		                                    <p class="well">{{ article.clean_content|firstparagraph }}
+		                                        <em><a href="{{ request.script_root }}/read/{{ article.id }}">...</a></em>
+		                                    </p>
+		                                </div>
+		                           {% endfor %}
+		                           </div> 
+		                        {% endfor %}
+		                     {% else %}
+		                        <button class="btn btn-link btn-large toggle_read_articles" data-articles-container="read-articles-{{ group.grouper }}" href="#"><i class="icon-caret-right"></i> Show Read Articles</button>
+	                        	{% for row in un_reads.list|batch(3)%} 
+	                        	<div class ="row read-articles-{{ group.grouper }}" style="display: none; margin-bottom: 10px">
+	                        		{% for article in row %}
+	                        		<div class="span3">
+	                                    <h5><a href="{{ request.script_root }}/read/{{ article.id }}">{{ article.headline }}</a><br />
+	                                    <small>{{ article.author }} on {{ article.vendor.name }}, {{ article.date|datetimeformat(format="%R on %d-%m-%Y") }}</small></h5>
+	                        		</div>
+	                        		{% endfor %}
+	                        	</div>
+	                        	{% endfor %}
+	                         {% endif %}
+                         {% endfor %}
+                    </section>
+                    {% endfor %}
+            </div>
+        </div>
+        
+        <div class="row">
+        	<div class="span9">
+
+        	</div>
+        </div>
+    
+    </div>
+  
+</div>
+{% endblock %}

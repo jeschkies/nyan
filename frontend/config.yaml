@@ -1,0 +1,17 @@
+---
+  #details for accessing mongodb
+  database:
+    host: "localhost"
+    user: "blacklab"
+    passwd: ""
+    db-name: ""
+    port: 0
+  #prefix for tfidf, lda and esa model
+  prefix: "wiki"
+  #minimum rating for top-news
+  rating: 0.1
+  #config for flask
+  flask:
+    secret_key: "very secret"
+    debug: True
+...

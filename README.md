@@ -27,7 +27,7 @@ How to setup and usage
 ======================
 
 Basically, the crawler, feature extractor, ranker have to be started. They use a 
-config file to connect to the STOMP broker. You should read corresponding chapter 
+config file to connect to the STOMP broker. You should read the corresponding chapter 
 in my thesis paper to get the whole setup. 
 
 The front end can be run on Apache with FastCGU. You can find a German how to 

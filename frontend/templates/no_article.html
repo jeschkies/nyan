@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    
+    <!-- sidebar left -->
+    <div class="span2" style="position:fixed;">
+        {% include 'includes/sidebar.html' %}
+    </div>
+    
+    <div class="span10 offset2" style="margin-top: 100px; margin-bottom: 100px">
+
+        <!-- content -->
+        <div class="alert alert-error alert-block">
+        	<h4>We are sorry!</h4>
+        	The article you requested could not be found!
+        </div>
+    
+    </div>
+  
+</div>
+{% endblock %}
