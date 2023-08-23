@@ -3,8 +3,7 @@ NYAN
 
 NYAN is a news filtering engine written in Python and some Ruby.
 
-It was mainly written for my master's thesis. You can find the details 
-[here](http://www.blackmagiclabs.com/portfolio/work/master-thesis.html).
+It was mainly written for my master's thesis.
 
 The filter is made up of several programs which pass messages to each other over 
 STOMP. I used [CoilMQ](https://github.com/hozn/coilmq/) as a broker.
